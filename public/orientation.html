@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOTANIQ - Orientation Module</title>
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="/css/style.css"> 
+</head>
+<body>
+    <main class="container">
+        <div class="header-logo">
+            <span class="leaf-emoji-large">🌿</span>
+            <h1>Orientation Module</h1>
+        </div>
+        
+        <h2>VR Headset Preparation</h2>
+        <p>Before entering the virtual museum, ensure the headset is connected and the system is ready.</p>
+
+        <ol>
+            <li><strong>Session Code Verification:</strong> Ensure the 8-character code has been entered into the VR headset. (The code is saved in browser memory).</li>
+            <li><strong>Controls Practice:</strong> Practice voice commands (ASR), gaze control, and hand gestures in the lobby.</li>
+            <li><strong>Network Disconnect:</strong> Once in the lobby, the internet connection may be disconnected (Offline-Capable Operation).</li>
+        </ol>
+        
+        <p class="separator">When ready, you may start the VR session.</p>
+
+        <a href="#" onclick="alert('Starting VR Environment... (VR Headset takes over)'); return false;" class="btn primary">Start VR Environment</a>
+        
+        <p style="margin-top: 30px; text-align: center;">--------------------------</p>
+        <a href="/survey.html" class="btn tertiary">Done with VR? Proceed to Survey</a>
+    </main>
+    <script src="/js/client.js"></script>
+</body>
+</html>

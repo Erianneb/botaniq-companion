@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOTANIQ - Post-Session Survey</title>
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="/css/style.css"> 
+    <style>
+        .survey-container { margin-top: 20px; }
+        .question-group { margin-bottom: 30px; padding: 15px; border: 1px solid #ddd; border-radius: 5px; }
+        .question-group h3 { margin-top: 0; padding-bottom: 10px; border-bottom: 1px solid #eee; }
+        .likert-question { margin-bottom: 18px; }
+        
+        /* Layout for scales */
+        .likert-scale { display: flex; justify-content: space-between; margin-top: 5px; }
+        .likert-scale-5 label { width: 18%; text-align: center; cursor: pointer; font-size: 13px; flex-shrink: 0; } 
+        .likert-scale-7 label { width: 14%; text-align: center; cursor: pointer; font-size: 13px; flex-shrink: 0; }
+
+        .likert-scale input[type="radio"] { display: none; }
+        .likert-scale span { display: block; border: 1px solid #ccc; padding: 5px 2px; border-radius: 3px; }
+        /* Style when checked (Primary Blue) */
+        .likert-scale input[type="radio"]:checked + span { background-color: #007bff; color: white; border-color: #007bff; }
+    </style>
+</head>
+<body>
+    <main class="container" style="max-width: 700px;">
+        <div class="header-logo">
+            <span class="leaf-emoji-large">🌿</span>
+            <h1>Post-Session Evaluation</h1>
+        </div>
+        
+        <h2>Final Evaluation Survey</h2>
+        <p>Please complete the following statements based on your experience with the BOTANIQ VR Herbarium Museum.</p>
+
+        <form id="evaluation-form" class="survey-container">
+            <input type="hidden" id="session-code-input" name="session_code">
+            
+            <div class="question-group">
+                <h3>A. System Usability Scale (SUS)</h3>
+                <p>Scale: 1 = Strongly Disagree, 5 = Strongly Agree.</p>
+                
+                <div class="likert-question"><p>1. I think that I would like to use this system frequently.</p><div class="likert-scale likert-scale-5"><label><input type="radio" name="sus_q1" value="1" required> <span>1</span></label><label><input type="radio" name="sus_q1" value="2"> <span>2</span></label><label><input type="radio" name="sus_q1" value="3"> <span>3</span></label><label><input type="radio" name="sus_q1" value="4"> <span>4</span></label><label><input type="radio" name="sus_q1" value="5"> <span>5</span></label></div></div>
+                <div class="likert-question"><p>2. I found the system unnecessarily complex.</p><div class="likert-scale likert-scale-5"><label><input type="radio" name="sus_q2" value="1" required> <span>1</span></label><label><input type="radio" name="sus_q2" value="2"> <span>2</span></label><label><input type="radio" name="sus_q2" value="3"> <span>3</span></label><label><input type="radio" name="sus_q2" value="4"> <span>4</span></label><label><input type="radio" name="sus_q2" value="5"> <span>5</span></label></div></div>
+                <div class="likert-question"><p>3. I thought the system was easy to use.</p><div class="likert-scale likert-scale-5"><label><input type="radio" name="sus_q3" value="1" required> <span>1</span></label><label><input type="radio" name="sus_q3" value="2"> <span>2</span></label><label><input type="radio" name="sus_q3" value="3"> <span>3</span></label><label><input type="radio" name="sus_q3" value="4"> <span>4</span></label><label><input type="radio" name="sus_q3" value="5"> <span>5</span></label></div></div>
+                <div class="likert-question"><p>4. I think that I would need the support of a technical person to be able to use this system.</p><div class="likert-scale likert-scale-5"><label><input type="radio" name="sus_q4" value="1" required> <span>1</span></label><label><input type="radio" name="sus_q4" value="2"> <span>2</span></label><label><input type="radio" name="sus_q4" value="3"> <span>3</span></label><label><input type="radio" name="sus_q4" value="4"> <span>4</span></label><label><input type="radio" name="sus_q4" value="5"> <span>5</span></label></div></div>
+                <div class="likert-question"><p>5. I found the various functions in this system were well integrated.</p><div class="likert-scale likert-scale-5"><label><input type="radio" name="sus_q5" value="1" required> <span>1</span></label><label><input type="radio" name="sus_q5" value="2"> <span>2</span></label><label><input type="radio" name="sus_q5" value="3"> <span>3</span></label><label><input type="radio" name="sus_q5" value="4"> <span>4</span></label><label><input type="radio" name="sus_q5" value="5"> <span>5</span></label></div></div>
+                <div class="likert-question"><p>6. I thought there was too much inconsistency in this system.</p><div class="likert-scale likert-scale-5"><label><input type="radio" name="sus_q6" value="1" required> <span>1</span></label><label><input type="radio" name="sus_q6" value="2"> <span>2</span></label><label><input type="radio" name="sus_q6" value="3"> <span>3</span></label><label><input type="radio" name="sus_q6" value="4"> <span>4</span></label><label><input type="radio" name="sus_q6" value="5"> <span>5</span></label></div></div>
+                <div class="likert-question"><p>7. I would imagine that most people would learn to use this system very quickly.</p><div class="likert-scale likert-scale-5"><label><input type="radio" name="sus_q7" value="1" required> <span>1</span></label><label><input type="radio" name="sus_q7" value="2"> <span>2</span></label><label><input type="radio" name="sus_q7" value="3"> <span>3</span></label><label><input type="radio" name="sus_q7" value="4"> <span>4</span></label><label><input type="radio" name="sus_q7" value="5"> <span>5</span></label></div></div>
+                <div class="likert-question"><p>8. I found the system very cumbersome to use.</p><div class="likert-scale likert-scale-5"><label><input type="radio" name="sus_q8" value="1" required> <span>1</span></label><label><input type="radio" name="sus_q8" value="2"> <span>2</span></label><label><input type="radio" name="sus_q8" value="3"> <span>3</span></label><label><input type="radio" name="sus_q8" value="4"> <span>4</span></label><label><input type="radio" name="sus_q8" value="5"> <span>5</span></label></div></div>
+                <div class="likert-question"><p>9. I felt very confident using the system.</p><div class="likert-scale likert-scale-5"><label><input type="radio" name="sus_q9" value="1" required> <span>1</span></label><label><input type="radio" name="sus_q9" value="2"> <span>2</span></label><label><input type="radio" name="sus_q9" value="3"> <span>3</span></label><label><input type="radio" name="sus_q9" value="4"> <span>4</span></label><label><input type="radio" name="sus_q9" value="5"> <span>5</span></label></div></div>
+                <div class="likert-question"><p>10. I needed to learn a lot of things before I could get going with this system.</p><div class="likert-scale likert-scale-5"><label><input type="radio" name="sus_q10" value="1" required> <span>1</span></label><label><input type="radio" name="sus_q10" value="2"> <span>2</span></label><label><input type="radio" name="sus_q10" value="3"> <span>3</span></label><label><input type="radio" name="sus_q10" value="4"> <span>4</span></label><label><input type="radio" name="sus_q10" value="5"> <span>5</span></label></div></div>
+            </div>
+            
+            <div class="question-group">
+                <h3>B. User Engagement Scale (UES-SF)</h3>
+                <p>Scale: 1 = Strongly Disagree, 5 = Strongly Agree. ('Application X' refers to the BOTANIQ VR Herbarium.)</p>
+
+                <div class="likert-question"><p>1. I lost myself in this experience. (FA-S.1)</p><div class="likert-scale likert-scale-5"><label><input type="radio" name="ues_q1" value="1" required> <span>1</span></label><label><input type="radio" name="ues_q1" value="2"> <span>2</span></label><label><input type="radio" name="ues_q1" value="3"> <span>3</span></label><label><input type="radio" name="ues_q1" value="4"> <span>4</span></label><label><input type="radio" name="ues_q1" value="5"> <span>5</span></label></div></div>
+                <div class="likert-question"><p>2. The time I spent using Application X just slipped away. (FA-S.2)</p><div class="likert-scale likert-scale-5"><label><input type="radio" name="ues_q2" value="1" required> <span>1</span></label><label><input type="radio" name="ues_q2" value="2"> <span>2</span></label><label><input type="radio" name="ues_q2" value="3"> <span>3</span></label><label><input type="radio" name="ues_q2" value="4"> <span>4</span></label><label><input type="radio" name="ues_q2" value="5"> <span>5</span></label></div></div>
+                <div class="likert-question"><p>3. I was absorbed in this experience. (FA-S.3)</p><div class="likert-scale likert-scale-5"><label><input type="radio" name="ues_q3" value="1" required> <span>1</span></label><label><input type="radio" name="ues_q3" value="2"> <span>2</span></label><label><input type="radio" name="ues_q3" value="3"> <span>3</span></label><label><input type="radio" name="ues_q3" value="4"> <span>4</span></label><label><input type="radio" name="ues_q3" value="5"> <span>5</span></label></div></div>
+                <div class="likert-question"><p>4. I felt frustrated while using this Application X. (PU-S.1, Reverse-coded)</p><div class="likert-scale likert-scale-5"><label><input type="radio" name="ues_q4" value="1" required> <span>1</span></label><label><input type="radio" name="ues_q4" value="2"> <span>2</span></label><label><input type="radio" name="ues_q4" value="3"> <span>3</span></label><label><input type="radio" name="ues_q4" value="4"> <span>4</span></label><label><input type="radio" name="ues_q4" value="5"> <span>5</span></label></div></div>
+                <div class="likert-question"><p>5. I found this Application X confusing to use. (PU-S.2, Reverse-coded)</p><div class="likert-scale likert-scale-5"><label><input type="radio" name="ues_q5" value="1" required> <span>1</span></label><label><input type="radio" name="ues_q5" value="2"> <span>2</span></label><label><input type="radio" name="ues_q5" value="3"> <span>3</span></label><label><input type="radio" name="ues_q5" value="4"> <span>4</span></label><label><input type="radio" name="ues_q5" value="5"> <span>5</span></label></div></div>
+                <div class="likert-question"><p>6. Using this Application X was taxing. (PU-S.3, Reverse-coded)</p><div class="likert-scale likert-scale-5"><label><input type="radio" name="ues_q6" value="1" required> <span>1</span></label><label><input type="radio" name="ues_q6" value="2"> <span>2</span></label><label><input type="radio" name="ues_q6" value="3"> <span>3</span></label><label><input type="radio" name="ues_q6" value="4"> <span>4</span></label><label><input type="radio" name="ues_q6" value="5"> <span>5</span></label></div></div>
+                <div class="likert-question"><p>7. This Application X was attractive. (AE-S.1)</p><div class="likert-scale likert-scale-5"><label><input type="radio" name="ues_q7" value="1" required> <span>1</span></label><label><input type="radio" name="ues_q7" value="2"> <span>2</span></label><label><input type="radio" name="ues_q7" value="3"> <span>3</span></label><label><input type="radio" name="ues_q7" value="4"> <span>4</span></label><label><input type="radio" name="ues_q7" value="5"> <span>5</span></label></div></div>
+                <div class="likert-question"><p>8. This Application X was aesthetically appealing. (AE-S.2)</p><div class="likert-scale likert-scale-5"><label><input type="radio" name="ues_q8" value="1" required> <span>1</span></label><label><input type="radio" name="ues_q8" value="2"> <span>2</span></label><label><input type="radio" name="ues_q8" value="3"> <span>3</span></label><label><input type="radio" name="ues_q8" value="4"> <span>4</span></label><label><input type="radio" name="ues_q8" value="5"> <span>5</span></label></div></div>
+                <div class="likert-question"><p>9. Application X appealed to visual senses. (AE-S.3)</p><div class="likert-scale likert-scale-5"><label><input type="radio" name="ues_q9" value="1" required> <span>1</span></label><label><input type="radio" name="ues_q9" value="2"> <span>2</span></label><label><input type="radio" name="ues_q9" value="3"> <span>3</span></label><label><input type="radio" name="ues_q9" value="4"> <span>4</span></label><label><input type="radio" name="ues_q9" value="5"> <span>5</span></label></div></div>
+                <div class="likert-question"><p>10. Using Application X was worthwhile. (RW-S.1)</p><div class="likert-scale likert-scale-5"><label><input type="radio" name="ues_q10" value="1" required> <span>1</span></label><label><input type="radio" name="ues_q10" value="2"> <span>2</span></label><label><input type="radio" name="ues_q10" value="3"> <span>3</span></label><label><input type="radio" name="ues_q10" value="4"> <span>4</span></label><label><input type="radio" name="ues_q10" value="5"> <span>5</span></label></div></div>
+                <div class="likert-question"><p>11. My experience was rewarding. (RW-S.2)</p><div class="likert-scale likert-scale-5"><label><input type="radio" name="ues_q11" value="1" required> <span>1</span></label><label><input type="radio" name="ues_q11" value="2"> <span>2</span></label><label><input type="radio" name="ues_q11" value="3"> <span>3</span></label><label><input type="radio" name="ues_q11" value="4"> <span>4</span></label><label><input type="radio" name="ues_q11" value="5"> <span>5</span></label></div></div>
+                <div class="likert-question"><p>12. I felt interested in this experience. (RW-S.3)</p><div class="likert-scale likert-scale-5"><label><input type="radio" name="ues_q12" value="1" required> <span>1</span></label><label><input type="radio" name="ues_q12" value="2"> <span>2</span></label><label><input type="radio" name="ues_q12" value="3"> <span>3</span></label><label><input type="radio" name="ues_q12" value="4"> <span>4</span></label><label><input type="radio" name="ues_q12" value="5"> <span>5</span></label></div></div>
+            </div>
+
+
+            <div class="question-group">
+                <h3>C. Plant Appreciation Levels (PAL)</h3>
+                <p>Scale: 1 = Strongly Disagree, 5 = Strongly Agree.</p>
+
+                <div class="likert-question"><p>1. I tend to notice plants around me, even in busy places.</p><div class="likert-scale likert-scale-5"><label><input type="radio" name="pal_q1" value="1" required> <span>1</span></label><label><input type="radio" name="pal_q1" value="2"> <span>2</span></label><label><input type="radio" name="pal_q1" value="3"> <span>3</span></label><label><input type="radio" name="pal_q1" value="4"> <span>4</span></label><label><input type="radio" name="pal_q1" value="5"> <span>5</span></label></div></div>
+                <div class="likert-question"><p>2. When viewing specimens, I paid attention to small plant details (e.g., leaf margins, vein patterns).</p><div class="likert-scale likert-scale-5"><label><input type="radio" name="pal_q2" value="1" required> <span>1</span></label><label><input type="radio" name="pal_q2" value="2"> <span>2</span></label><label><input type="radio" name="pal_q2" value="3"> <span>3</span></label><label><input type="radio" name="pal_q2" value="4"> <span>4</span></label><label><input type="radio" name="pal_q2" value="5"> <span>5</span></label></div></div>
+                <div class="likert-question"><p>3. I often overlook plants unless someone points them out (Reverse-coded).</p><div class="likert-scale likert-scale-5"><label><input type="radio" name="pal_q3" value="1" required> <span>1</span></label><label><input type="radio" name="pal_q3" value="2"> <span>2</span></label><label><input type="radio" name="pal_q3" value="3"> <span>3</span></label><label><input type="radio" name="pal_q3" value="4"> <span>4</span></label><label><input type="radio" name="pal_q3" value="5"> <span>5</span></label></div></div>
+                <div class="likert-question"><p>4. Learning about plants is interesting to me.</p><div class="likert-scale likert-scale-5"><label><input type="radio" name="pal_q4" value="1" required> <span>1</span></label><label><input type="radio" name="pal_q4" value="2"> <span>2</span></label><label><input type="radio" name="pal_q4" value="3"> <span>3</span></label><label><input type="radio" name="pal_q4" value="4"> <span>4</span></label><label><input type="radio" name="pal_q4" value="5"> <span>5</span></label></div></div>
+                <div class="likert-question"><p>5. I would like to explore more plant exhibits or gardens after this session.</p><div class="likert-scale likert-scale-5"><label><input type="radio" name="pal_q5" value="1" required> <span>1</span></label><label><input type="radio" name="pal_q5" value="2"> <span>2</span></label><label><input type="radio" name="pal_q5" value="3"> <span>3</span></label><label><input type="radio" name="pal_q5" value="4"> <span>4</span></label><label><input type="radio" name="pal_q5" value="5"> <span>5</span></label></div></div>
+                <div class="likert-question"><p>6. Compared with animals, I find plants less engaging to learn about (Reverse-coded).</p><div class="likert-scale likert-scale-5"><label><input type="radio" name="pal_q6" value="1" required> <span>1</span></label><label><input type="radio" name="pal_q6" value="2"> <span>2</span></label><label><input type="radio" name="pal_q6" value="3"> <span>3</span></label><label><input type="radio" name="pal_q6" value="4"> <span>4</span></label><label><input type="radio" name="pal_q6" value="5"> <span>5</span></label></div></div>
+                <div class="likert-question"><p>7. Plants are essential to ecosystems and human life.</p><div class="likert-scale likert-scale-5"><label><input type="radio" name="pal_q7" value="1" required> <span>1</span></label><label><input type="radio" name="pal_q7" value="2"> <span>2</span></label><label><input type="radio" name="pal_q7" value="3"> <span>3</span></label><label><input type="radio" name="pal_q7" value="4"> <span>4</span></label><label><input type="radio" name="pal_q7" value="5"> <span>5</span></label></div></div>
+                <div class="likert-question"><p>8. Understanding plants is relevant to everyday decisions (food, health, environment).</p><div class="likert-scale likert-scale-5"><label><input type="radio" name="pal_q8" value="1" required> <span>1</span></label><label><input type="radio" name="pal_q8" value="2"> <span>2</span></label><label><input type="radio" name="pal_q8" value="3"> <span>3</span></label><label><input type="radio" name="pal_q8" value="4"> <span>4</span></label><label><input type="radio" name="pal_q8" value="5"> <span>5</span></label></div></div>
+                <div class="likert-question"><p>9. The importance of plants is overstated in science education (Reverse-coded).</p><div class="likert-scale likert-scale-5"><label><input type="radio" name="pal_q9" value="1" required> <span>1</span></label><label><input type="radio" name="pal_q9" value="2"> <span>2</span></label><label><input type="radio" name="pal_q9" value="3"> <span>3</span></label><label><input type="radio" name="pal_q9" value="4"> <span>4</span></label><label><input type="radio" name="pal_q9" value="5"> <span>5</span></label></div></div>
+                <div class="likert-question"><p>10. I find plants visually appealing (forms, textures, colors).</p><div class="likert-scale likert-scale-5"><label><input type="radio" name="pal_q10" value="1" required> <span>1</span></label><label><input type="radio" name="pal_q10" value="2"> <span>2</span></label><label><input type="radio" name="pal_q10" value="3"> <span>3</span></label><label><input type="radio" name="pal_q10" value="4"> <span>4</span></label><label><input type="radio" name="pal_q10" value="5"> <span>5</span></label></div></div>
+                <div class="likert-question"><p>11. Seeing diverse plant structures inspires me.</p><div class="likert-scale likert-scale-5"><label><input type="radio" name="pal_q11" value="1" required> <span>1</span></label><label><input type="radio" name="pal_q11" value="2"> <span>2</span></label><label><input type="radio" name="pal_q11" value="3"> <span>3</span></label><label><input type="radio" name="pal_q11" value="4"> <span>4</span></label><label><input type="radio" name="pal_q11" value="5"> <span>5</span></label></div></div>
+                <div class="likert-question"><p>12. Compared with other exhibits, plant exhibits are not aesthetically compelling (Reverse-coded).</p><div class="likert-scale likert-scale-5"><label><input type="radio" name="pal_q12" value="1" required> <span>1</span></label><label><input type="radio" name="pal_q12" value="2"> <span>2</span></label><label><input type="radio" name="pal_q12" value="3"> <span>3</span></label><label><input type="radio" name="pal_q12" value="4"> <span>4</span></label><label><input type="radio" name="pal_q12" value="5"> <span>5</span></label></div></div>
+            </div>
+
+
+            <div class="question-group">
+                <h3>D. Igroup Presence Questionnaire (IPQ)</h3>
+                <p>Scale: -3 to +3.</p>
+                
+                <div class="likert-question"><p>1. How aware were you of the real world surrounding while navigating in the virtual world?</p><div class="likert-scale likert-scale-7"><label><input type="radio" name="ipq_q1" value="-3" required> <span>-3</span></label><label><input type="radio" name="ipq_q1" value="-2"> <span>-2</span></label><label><input type="radio" name="ipq_q1" value="-1"> <span>-1</span></label><label><input type="radio" name="ipq_q1" value="0"> <span>0</span></label><label><input type="radio" name="ipq_q1" value="+1"> <span>+1</span></label><label><input type="radio" name="ipq_q1" value="+2"> <span>+2</span></label><label><input type="radio" name="ipq_q1" value="+3"> <span>+3</span></label></div></div>
+                <div class="likert-question"><p>2. How real did the virtual world seem to you?</p><div class="likert-scale likert-scale-7"><label><input type="radio" name="ipq_q2" value="-3" required> <span>-3</span></label><label><input type="radio" name="ipq_q2" value="-2"> <span>-2</span></label><label><input type="radio" name="ipq_q2" value="-1"> <span>-1</span></label><label><input type="radio" name="ipq_q2" value="0"> <span>0</span></label><label><input type="radio" name="ipq_q2" value="+1"> <span>+1</span></label><label><input type="radio" name="ipq_q2" value="+2"> <span>+2</span></label><label><input type="radio" name="ipq_q2" value="+3"> <span>+3</span></label></div></div>
+                <div class="likert-question"><p>3. I had a sense of acting in the virtual space, rather than operating something from outside.</p><div class="likert-scale likert-scale-7"><label><input type="radio" name="ipq_q3" value="-3" required> <span>-3</span></label><label><input type="radio" name="ipq_q3" value="-2"> <span>-2</span></label><label><input type="radio" name="ipq_q3" value="-1"> <span>-1</span></label><label><input type="radio" name="ipq_q3" value="0"> <span>0</span></label><label><input type="radio" name="ipq_q3" value="+1"> <span>+1</span></label><label><input type="radio" name="ipq_q3" value="+2"> <span>+2</span></label><label><input type="radio" name="ipq_q3" value="+3"> <span>+3</span></label></div></div>
+                <div class="likert-question"><p>4. How much did your experience in the virtual environment seem consistent with your real world experience?</p><div class="likert-scale likert-scale-7"><label><input type="radio" name="ipq_q4" value="-3" required> <span>-3</span></label><label><input type="radio" name="ipq_q4" value="-2"> <span>-2</span></label><label><input type="radio" name="ipq_q4" value="-1"> <span>-1</span></label><label><input type="radio" name="ipq_q4" value="0"> <span>0</span></label><label><input type="radio" name="ipq_q4" value="+1"> <span>+1</span></label><label><input type="radio" name="ipq_q4" value="+2"> <span>+2</span></label><label><input type="radio" name="ipq_q4" value="+3"> <span>+3</span></label></div></div>
+                <div class="likert-question"><p>5. How real did the virtual world seem to you? (About as real as imagined world vs. Indistinguishable from the real world)</p><div class="likert-scale likert-scale-7"><label><input type="radio" name="ipq_q5" value="-3" required> <span>-3</span></label><label><input type="radio" name="ipq_q5" value="-2"> <span>-2</span></label><label><input type="radio" name="ipq_q5" value="-1"> <span>-1</span></label><label><input type="radio" name="ipq_q5" value="0"> <span>0</span></label><label><input type="radio" name="ipq_q5" value="+1"> <span>+1</span></label><label><input type="radio" name="ipq_q5" value="+2"> <span>+2</span></label><label><input type="radio" name="ipq_q5" value="+3"> <span>+3</span></label></div></div>
+                <div class="likert-question"><p>6. I did not feel present in the virtual space. (Felt present vs. Not feel present)</p><div class="likert-scale likert-scale-7"><label><input type="radio" name="ipq_q6" value="-3" required> <span>-3</span></label><label><input type="radio" name="ipq_q6" value="-2"> <span>-2</span></label><label><input type="radio" name="ipq_q6" value="-1"> <span>-1</span></label><label><input type="radio" name="ipq_q6" value="0"> <span>0</span></label><label><input type="radio" name="ipq_q6" value="+1"> <span>+1</span></label><label><input type="radio" name="ipq_q6" value="+2"> <span>+2</span></label><label><input type="radio" name="ipq_q6" value="+3"> <span>+3</span></label></div></div>
+                <div class="likert-question"><p>7. I was not aware of my real environment.</p><div class="likert-scale likert-scale-7"><label><input type="radio" name="ipq_q7" value="-3" required> <span>-3</span></label><label><input type="radio" name="ipq_q7" value="-2"> <span>-2</span></label><label><input type="radio" name="ipq_q7" value="-1"> <span>-1</span></label><label><input type="radio" name="ipq_q7" value="0"> <span>0</span></label><label><input type="radio" name="ipq_q7" value="+1"> <span>+1</span></label><label><input type="radio" name="ipq_q7" value="+2"> <span>+2</span></label><label><input type="radio" name="ipq_q7" value="+3"> <span>+3</span></label></div></div>
+                <div class="likert-question"><p>8. In the computer generated world, I had a sense of "being there".</p><div class="likert-scale likert-scale-7"><label><input type="radio" name="ipq_q8" value="-3" required> <span>-3</span></label><label><input type="radio" name="ipq_q8" value="-2"> <span>-2</span></label><label><input type="radio" name="ipq_q8" value="-1"> <span>-1</span></label><label><input type="radio" name="ipq_q8" value="0"> <span>0</span></label><label><input type="radio" name="ipq_q8" value="+1"> <span>+1</span></label><label><input type="radio" name="ipq_q8" value="+2"> <span>+2</span></label><label><input type="radio" name="ipq_q8" value="+3"> <span>+3</span></label></div></div>
+                <div class="likert-question"><p>9. Somehow I felt that the virtual world surrounded me.</p><div class="likert-scale likert-scale-7"><label><input type="radio" name="ipq_q9" value="-3" required> <span>-3</span></label><label><input type="radio" name="ipq_q9" value="-2"> <span>-2</span></label><label><input type="radio" name="ipq_q9" value="-1"> <span>-1</span></label><label><input type="radio" name="ipq_q9" value="0"> <span>0</span></label><label><input type="radio" name="ipq_q9" value="+1"> <span>+1</span></label><label><input type="radio" name="ipq_q9" value="+2"> <span>+2</span></label><label><input type="radio" name="ipq_q9" value="+3"> <span>+3</span></label></div></div>
+            </div>
+
+
+            <button type="submit" class="btn primary">Submit Evaluation & Finish</button>
+        </form>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('evaluation-form');
+
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                // Get Session Code from Local Storage
+                const sessionCode = localStorage.getItem('botaniq_session_code');
+                const formData = new FormData(form);
+                
+                if (!sessionCode) {
+                    alert('ERROR: Session code not found. Please log in again.');
+                    return;
+                }
+
+                // Compile data for submission
+                const data = { session_code: sessionCode, questions: {} };
+                formData.forEach((value, key) => {
+                    if (key !== 'session_code') { 
+                        data.questions[key] = value;
+                    }
+                });
+                
+                try {
+                    // API call to submit survey and set the 'survey_completed' flag to 1
+                    const response = await fetch('/api/survey/submit', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(data)
+                    });
+
+                    const result = await response.json();
+                    
+                    if (result.success) {
+                        alert('Survey complete! Data submitted successfully.');
+                        // Final step: Update server status and clear local data
+                        localStorage.removeItem('botaniq_session_code');
+                        window.location.href = '/'; // Redirect to home
+                    } else {
+                         alert('Error submitting survey: ' + result.message);
+                    }
+                } catch (error) {
+                    alert('Connection failed. Please check the server and try submitting again.');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOTANIQ - Session Portal</title>
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="/css/style.css"> 
+</head>
+<body>
+
+    <main class="container">
+        
+        <div class="header-logo">
+            <span class="leaf-emoji-large">🌿</span>
+            <h1>BOTANIQ: PUP-Manila Virtual Herbarium</h1>
+        </div>
+
+        <section id="session-login">
+            <h2>Please Enter Details to Login</h2> 
+            <form id="login-form">
+                <input type="text" id="username" placeholder="Enter Participant Name" required>
+                <input type="password" id="password" placeholder="Enter Password" required>
+                <button type="submit" class="btn primary">Log in</button>
+            </form>
+            
+            <p class="separator">— OR —</p>
+            <button id="toggle-create-btn" class="btn secondary">Create Account</button>
+        </section>
+
+        <section id="create-account-form" style="display:none;">
+            <h2>1. New User Registration</h2> 
+            <form id="creation-form">
+                <input type="text" id="new-username" placeholder="Choose a Username" required>
+                <input type="password" id="new-password" placeholder="Choose a Password (for data linking)" required>
+                <button type="submit" class="btn success-btn">Create Account & Get Code</button>
+            </form>
+            <button id="back-to-login-btn" class="btn secondary">Back to Login</button>
+        </section>
+        
+        <section id="session-code-display" style="display:none;">
+            <h2>2. Your Unique Session Code</h2>
+            <p>Enter this **8-character code** into the VR Headset:</p>
+            <div id="session-code" class="code-box"></div>
+            <a href="/orientation" class="btn tertiary">3. Proceed to VR Orientation</a>
+        </section>
+        
+        <aside id="pwa-info">
+            <p><em>This is the Progressive Web App (PWA) for BOTANIQ.</em></p>
+        </aside>
+    </main>
+
+    <script src="/js/client.js"></script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+.container {
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+}
+/* Styling for the Header Logo Alignment */
+.header-logo {
+    display: flex;       /* Para magkatabi ang Emoji at H1 */
+    align-items: center; /* Para maging vertical center */
+    margin-bottom: 20px;
+}
+.leaf-emoji-large {
+    font-size: 40px;     /* Logo size */
+    color: #28a745;      /* Green color */
+    margin-right: 8px; 
+    line-height: 1;
+}
+/* FONT SIZE 1: Malaking Font para sa Title */
+.header-logo h1 {
+    margin: 0;
+    font-size: 28px; /* LAKING FONT */
+    line-height: 1.2;
+}
+
+/* FONT SIZE 2: Maliit na Font para sa Instructions */
+h2 {
+    font-size: 18px; /* LIIT NA FONT */
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0 16px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.btn {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+}
+.primary {
+    background-color: #007bff; /* Blue for Login/Resume */
+    color: white;
+}
+.secondary {
+    background-color: #4CAF50; /* Green for Create Account button */
+    color: white;
+}
+.success-btn {
+    background-color: #4CAF50; /* Green for Create Account Submit */
+    color: white;
+}
+.tertiary {
+    background-color: #28a745; /* Green for next step */
+    color: white;
+}
+.code-box {
+    background-color: #e0f7e0;
+    color: #388e3c;
+    padding: 15px;
+    margin-top: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 4px;
+    border: 2px dashed #4CAF50;
+}
+.separator {
+    text-align: center;
+    margin: 15px 0;
+}

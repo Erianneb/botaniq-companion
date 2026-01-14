@@ -1,0 +1,14 @@
+{
+  "name": "botaniq-companion",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "express": "^5.1.0",
+    "pg": "^8.11.5",
+    "uuid": "^13.0.0"
+  }
+}

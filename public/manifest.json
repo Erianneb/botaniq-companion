@@ -1,0 +1,10 @@
+{
+    "name": "BOTANIQ Companion",
+    "short_name": "BOTANIQ",
+    "description": "Companion website for the VR Herbarium Museum. Works offline.",
+    "start_url": "/",
+    "scope": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#4CAF50"
+}

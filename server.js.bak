@@ -1,0 +1,67 @@
+const express = require('express');
+const sqlite3 = require('sqlite3').verbose(); 
+const uuid = require('uuid');              
+const path = require('path');
+
+const app = express();
+const PORT = 3000;
+const DATABASE = 'session_data.db'; 
+
+app.use(express.json()); 
+app.use(express.static(path.join(__dirname, 'public'))); 
+
+const db = new sqlite3.Database(DATABASE, (err) => {
+    if (err) console.error('Database connection error:', err.message);
+    else {
+        console.log('Connected to the SQLite database.');
+        db.run(`CREATE TABLE IF NOT EXISTS sessions (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            username TEXT NOT NULL UNIQUE,
+            password_hash TEXT NOT NULL,
+            session_code TEXT NOT NULL UNIQUE,
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        )`);
+    }
+});
+
+app.post('/api/session/create', (req, res) => {
+    const { username, password } = req.body;
+    const session_code = uuid.v4().toUpperCase().slice(0, 8); 
+
+    db.run(`INSERT INTO sessions (username, password_hash, session_code) VALUES (?, ?, ?)`,
+        [username, password, session_code], 
+        function(err) {
+            if (err) {
+                if (err.message.includes('UNIQUE constraint failed')) {
+                     return res.status(400).json({ success: false, message: 'Username already taken.' });
+                }
+                return res.status(500).json({ success: false, message: 'Database error.' });
+            }
+            res.status(201).json({ success: true, session_code: session_code, user_id: this.lastID });
+        }
+    );
+});
+
+app.post('/api/data/sync', (req, res) => {
+    const { session_code, logs } = req.body;
+
+    if (!session_code || !logs) {
+        return res.status(400).json({ success: false, message: "Missing session code or logs." });
+    }
+
+    console.log(`Received ${logs.length} log entries for session: ${session_code}`);
+
+    res.json({ success: true, message: 'Data queued for synchronization.' });
+});
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+app.get('/orientation', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'orientation.html'));
+});
+
+app.listen(PORT, () => {
+    console.log(`BOTANIQ Server running on http://localhost:${PORT}`);
+});
